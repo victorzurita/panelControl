@@ -1,10 +1,8 @@
 package com.key.licence.Rest;
 
-import com.key.licence.Core.dtos.RoleDto;
 import com.key.licence.Core.dtos.UserDto;
 import com.key.licence.Core.services.UserService;
 import com.key.licence.Core.utils.Response;
-import com.key.licence.Dal.models.UserSauro;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

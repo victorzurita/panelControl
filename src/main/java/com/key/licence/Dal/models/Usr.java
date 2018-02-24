@@ -2,18 +2,16 @@ package com.key.licence.Dal.models;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
 import java.util.Set;
 
 /**
  * Created by jrafa on 2/6/2018.
  */
 @Entity
-@Table(name="role")
-public class Role implements Serializable {
+public class Usr implements Serializable {
     private int id;
     private String name;
-    private Set<Usr> users = new HashSet<>();
+    private Set<Module> modules;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -33,13 +31,14 @@ public class Role implements Serializable {
         this.name = name;
     }
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "role_id")
-    public Set<Usr> getUsers() {
-        return users;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "usr_module", joinColumns = @JoinColumn(name = "usr_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "module_id", referencedColumnName = "id"))
+    public Set<Module> getModules() {
+        return modules;
     }
 
-    public void setUsers(Set<Usr> users) {
-        this.users = users;
+    public void setModules(Set<Module> modules) {
+        this.modules = modules;
     }
 }

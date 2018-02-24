@@ -1,15 +1,13 @@
 package com.key.licence.Dal.models;
 
 import javax.persistence.*;
-import java.io.Serializable;
+import java.util.Set;
 
-/**
- * Created by jrafa on 2/6/2018.
- */
 @Entity
-public class UserSauro implements Serializable {
+public class Module {
     private int id;
     private String name;
+    private Set<Usr> usrs;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,5 +25,14 @@ public class UserSauro implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @ManyToMany(mappedBy = "modules")
+    public Set<Usr> getUsrs() {
+        return usrs;
+    }
+
+    public void setUsrs(Set<Usr> usrs) {
+        this.usrs = usrs;
     }
 }
