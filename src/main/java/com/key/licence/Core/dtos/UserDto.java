@@ -4,26 +4,43 @@ package com.key.licence.Core.dtos;
  * Created by jrafa on 2/4/2018.
  */
 public class UserDto {
-    private String fullName;
-    private String nickName;
+    private String name;
+    private String code;
+    private String last_name;
+    private String nick_name;
     private String password;
-    private int idUserCreator;
-    private int idRol;
+    private int rol_id;
 
-    public String getFullName() {
-        return fullName;
+    public String getName() {
+        return name;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getNickName() {
-        return nickName;
+    public String getCode() {
+        return code;
     }
 
-    public void setNickName(String nickName) {
-        this.nickName = nickName;
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getLast_name() {
+        return last_name;
+    }
+
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
+    }
+
+    public String getNick_name() {
+        return nick_name;
+    }
+
+    public void setNick_name(String nick_name) {
+        this.nick_name = nick_name;
     }
 
     public String getPassword() {
@@ -34,19 +51,11 @@ public class UserDto {
         this.password = password;
     }
 
-    public int getIdUserCreator() {
-        return idUserCreator;
+    public int getRol_id() {
+        return rol_id;
     }
 
-    public void setIdUserCreator(int idUserCreator) {
-        this.idUserCreator = idUserCreator;
-    }
-
-    public int getIdRol() {
-        return idRol;
-    }
-
-    public void setIdRol(int idRol) {
-        this.idRol = idRol;
+    public void setRol_id(int rol_id) {
+        this.rol_id = rol_id;
     }
 }

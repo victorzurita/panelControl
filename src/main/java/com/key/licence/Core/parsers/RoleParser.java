@@ -21,17 +21,10 @@ public class RoleParser implements IParser<Role, RoleDto> {
     public Role parserDtoToEntity(RoleDto dto) {
         Role rol = new Role();
         rol.setName(dto.getName());
-        /*rol.setName(dto.getName());
-        rol.setDescription(dto.getDescription());*/
-        //rol.setAccessLevel(AccessLevel.valueOf(dto.getAccessLevel()));
-        /*rol.setEnableToCreate(dto.isEnableToCreate());
-        rol.setEnableToUpdate(dto.isEnableToUpdate());
-        rol.setEnableToDelete(dto.isEnableToDelete());
-        rol.setEnableToPrint(dto.isEnableToPrint());
-        rol.setCreatedDate(new Date());
-        rol.setActive(Boolean.TRUE);
-        rol.setIdUserCreator(dto.getIdUserCreator());
-*/
+        rol.setCode(dto.getCode());
+        rol.setDescription(dto.getDescription());
+        rol.setAccessLevel();
+
         return rol;
     }
 }
