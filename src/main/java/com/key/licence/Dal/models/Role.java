@@ -1,31 +1,31 @@
 package com.key.licence.Dal.models;
 
-import com.key.licence.Dal.enums.AccessLevel;
+import com.key.licence.Dal.enums.AccessLevelType;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Created by jrafa on 2/6/2018.
+ * Created by Rafael Encinas.
  */
 @Entity
 @Table(name="role")
 public class Role implements Serializable {
     private int id;
     private String name;
-    private String code;
     private String description;
-    private AccessLevel accessLevel;
-    private boolean enabled_at_create;
-    private boolean enabled_at_update;
-    private boolean enabled_at_delete;
-    private boolean enabled_at_print;
+    private AccessLevelType accessLevelType;
+    private boolean enabledAtCreate;
+    private boolean enabledAtUpdate;
+    private boolean enabledAtDelete;
+    private boolean enabledAtPrint;
     private boolean active;
-    private boolean created_at_date;
-    private boolean updated_at_date;
-    private boolean user_creator;
+    private Date createdAtDate;
+    private Date updatedAtDate;
+    private int userCreatorId;
 
     private Set<Usr> users = new HashSet<>();
 
@@ -65,52 +65,44 @@ public class Role implements Serializable {
         this.description = description;
     }
 
-    public AccessLevel getAccessLevel() {
-        return accessLevel;
+    public AccessLevelType getAccessLevelType() {
+        return accessLevelType;
     }
 
-    public void setAccessLevel(AccessLevel accessLevel) {
-        this.accessLevel = accessLevel;
+    public void setAccessLevelType(AccessLevelType accessLevelType) {
+        this.accessLevelType = accessLevelType;
     }
 
-    public String getCode() {
-        return code;
+    public boolean isEnabledAtCreate() {
+        return enabledAtCreate;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setEnabledAtCreate(boolean enabledAtCreate) {
+        this.enabledAtCreate = enabledAtCreate;
     }
 
-    public boolean isEnabled_at_create() {
-        return enabled_at_create;
+    public boolean isEnabledAtUpdate() {
+        return enabledAtUpdate;
     }
 
-    public void setEnabled_at_create(boolean enabled_at_create) {
-        this.enabled_at_create = enabled_at_create;
+    public void setEnabledAtUpdate(boolean enabledAtUpdate) {
+        this.enabledAtUpdate = enabledAtUpdate;
     }
 
-    public boolean isEnabled_at_update() {
-        return enabled_at_update;
+    public boolean isEnabledAtDelete() {
+        return enabledAtDelete;
     }
 
-    public void setEnabled_at_update(boolean enabled_at_update) {
-        this.enabled_at_update = enabled_at_update;
+    public void setEnabledAtDelete(boolean enabledAtDelete) {
+        this.enabledAtDelete = enabledAtDelete;
     }
 
-    public boolean isEnabled_at_delete() {
-        return enabled_at_delete;
+    public boolean isEnabledAtPrint() {
+        return enabledAtPrint;
     }
 
-    public void setEnabled_at_delete(boolean enabled_at_delete) {
-        this.enabled_at_delete = enabled_at_delete;
-    }
-
-    public boolean isEnabled_at_print() {
-        return enabled_at_print;
-    }
-
-    public void setEnabled_at_print(boolean enabled_at_print) {
-        this.enabled_at_print = enabled_at_print;
+    public void setEnabledAtPrint(boolean enabledAtPrint) {
+        this.enabledAtPrint = enabledAtPrint;
     }
 
     public boolean isActive() {
@@ -121,27 +113,27 @@ public class Role implements Serializable {
         this.active = active;
     }
 
-    public boolean isCreated_at_date() {
-        return created_at_date;
+    public Date getCreatedAtDate() {
+        return createdAtDate;
     }
 
-    public void setCreated_at_date(boolean created_at_date) {
-        this.created_at_date = created_at_date;
+    public void setCreatedAtDate(Date createdAtDate) {
+        this.createdAtDate = createdAtDate;
     }
 
-    public boolean isUpdated_at_date() {
-        return updated_at_date;
+    public Date getUpdatedAtDate() {
+        return updatedAtDate;
     }
 
-    public void setUpdated_at_date(boolean updated_at_date) {
-        this.updated_at_date = updated_at_date;
+    public void setUpdatedAtDate(Date updatedAtDate) {
+        this.updatedAtDate = updatedAtDate;
     }
 
-    public boolean isUser_creator() {
-        return user_creator;
+    public int getUserCreatorId() {
+        return userCreatorId;
     }
 
-    public void setUser_creator(boolean user_creator) {
-        this.user_creator = user_creator;
+    public void setUserCreatorId(int userCreatorId) {
+        this.userCreatorId = userCreatorId;
     }
 }

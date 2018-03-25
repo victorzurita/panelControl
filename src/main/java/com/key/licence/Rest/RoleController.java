@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
  * Created by jrafa on 2/5/2018.
  */
 @RestController
-@RequestMapping(path = "/api")
 public class RoleController {
     @Autowired
     RoleService roleService;

@@ -6,16 +6,15 @@ import java.util.Set;
 @Entity
 public class Module {
     private int id;
-    private String code;
     private String name;
     private String description;
     private boolean active;
-    private boolean created_at_date;
-    private boolean updated_at_date;
+    private boolean createdAtDate;
+    private boolean updatedAtDate;
 
     private Set<Usr> usrs;
 
-    private boolean user_creator;
+    private int userCreatorId;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -44,14 +43,6 @@ public class Module {
         this.usrs = usrs;
     }
 
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -68,27 +59,27 @@ public class Module {
         this.active = active;
     }
 
-    public boolean isCreated_at_date() {
-        return created_at_date;
+    public boolean isCreatedAtDate() {
+        return createdAtDate;
     }
 
-    public void setCreated_at_date(boolean created_at_date) {
-        this.created_at_date = created_at_date;
+    public void setCreatedAtDate(boolean createdAtDate) {
+        this.createdAtDate = createdAtDate;
     }
 
-    public boolean isUpdated_at_date() {
-        return updated_at_date;
+    public boolean isUpdatedAtDate() {
+        return updatedAtDate;
     }
 
-    public void setUpdated_at_date(boolean updated_at_date) {
-        this.updated_at_date = updated_at_date;
+    public void setUpdatedAtDate(boolean updatedAtDate) {
+        this.updatedAtDate = updatedAtDate;
     }
 
-    public boolean isUser_creator() {
-        return user_creator;
+    public int getUserCreatorId() {
+        return userCreatorId;
     }
 
-    public void setUser_creator(boolean user_creator) {
-        this.user_creator = user_creator;
+    public void setUserCreatorId(int userCreatorId) {
+        this.userCreatorId = userCreatorId;
     }
 }

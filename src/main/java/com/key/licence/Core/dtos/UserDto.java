@@ -1,15 +1,21 @@
 package com.key.licence.Core.dtos;
 
+import javax.validation.constraints.NotNull;
+
 /**
- * Created by jrafa on 2/4/2018.
+ * Created by Rafael Encinas.
  */
 public class UserDto {
+    @NotNull
     private String name;
-    private String code;
-    private String last_name;
-    private String nick_name;
+    @NotNull
+    private String lastName;
+    @NotNull
+    private String nickName;
+    @NotNull
     private String password;
-    private int rol_id;
+    @NotNull
+    private int rolId;
 
     public String getName() {
         return name;
@@ -19,28 +25,20 @@ public class UserDto {
         this.name = name;
     }
 
-    public String getCode() {
-        return code;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getLast_name() {
-        return last_name;
+    public String getNickName() {
+        return nickName;
     }
 
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
-    }
-
-    public String getNick_name() {
-        return nick_name;
-    }
-
-    public void setNick_name(String nick_name) {
-        this.nick_name = nick_name;
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
     }
 
     public String getPassword() {
@@ -51,11 +49,11 @@ public class UserDto {
         this.password = password;
     }
 
-    public int getRol_id() {
-        return rol_id;
+    public int getRolId() {
+        return rolId;
     }
 
-    public void setRol_id(int rol_id) {
-        this.rol_id = rol_id;
+    public void setRolId(int rolId) {
+        this.rolId = rolId;
     }
 }

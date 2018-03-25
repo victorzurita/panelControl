@@ -1,5 +1,6 @@
 package com.key.licence.Core.services;
 
+import com.key.licence.Core.dtos.AuthenticationDto;
 import com.key.licence.Core.dtos.UserDto;
 import com.key.licence.Core.parsers.UserParser;
 import com.key.licence.Core.utils.Response;
@@ -11,10 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * Created by jrafa on 2/4/2018.
+ * Created by jrafa on 3/10/2018.
  */
 @Service
-public class UserService {
+public class AuthService {
     @Autowired
     UserParser userParser;
 
@@ -24,13 +25,14 @@ public class UserService {
     @Autowired
     IRoleRepository rolRepository;
 
-    public Response createUser(UserDto userDto) {
+    public Response authentication(AuthenticationDto authenticationDtoDto) {
         Response response = new Response(Boolean.TRUE, "Created sucessfully a Usr", null);
-        Usr user = userParser.parserDtoToEntity(userDto);
-        Role rol = rolRepository.findOne(userDto.getRolId());
-        rol.getUsers().add(user);
-        userRepository.save(user);
-
-        return response;
+        Usr user = userRepository.authentication(authenticationDtoDto.getNickName(), authenticationDtoDto.getPassword());
+        if(user != null){
+            response.setData("Authentication successfully");
+            return  response;
+        }
+        response.setData("Authentication failed");
+        return  response;
     }
 }

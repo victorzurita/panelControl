@@ -4,8 +4,10 @@ import com.key.licence.Core.dtos.UserDto;
 import com.key.licence.Dal.models.Usr;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+
 /**
- * Created by jrafa on 2/4/2018.
+ * Created by Rafael Encinas.
  */
 @Service
 public class UserParser implements IParser<Usr, UserDto> {
@@ -18,14 +20,13 @@ public class UserParser implements IParser<Usr, UserDto> {
     @Override
     public Usr parserDtoToEntity(UserDto dto) {
         Usr user = new Usr();
-        user.setName(dto.getFullName());
-        /*user.setFullName(dto.getFullName());
+        user.setName(dto.getName());
+        user.setLastName(dto.getLastName());
         user.setNickName(dto.getNickName());
         user.setPassword(dto.getPassword());
         user.setActive(Boolean.TRUE);
-        user.setCreatedDate(new Date());
-        user.setIdUserCreator(dto.getIdUserCreator());
-*/
+        user.setCreatedAtDate(new Date());
+        user.setUpdatedAtDate(new Date());
         return  user;
     }
 }

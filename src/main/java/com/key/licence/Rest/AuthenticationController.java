@@ -1,6 +1,8 @@
 package com.key.licence.Rest;
 
+import com.key.licence.Core.dtos.AuthenticationDto;
 import com.key.licence.Core.dtos.UserDto;
+import com.key.licence.Core.services.AuthService;
 import com.key.licence.Core.services.UserService;
 import com.key.licence.Core.utils.Response;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,16 +14,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Created by jrafa on 2/5/2018.
+ * Created by jrafa on 3/10/2018.
  */
 @RestController
-public class UserController {
+public class AuthenticationController {
     @Autowired
-    UserService userService;
+    AuthService authService;
 
-    @RequestMapping(method = RequestMethod.POST, path = "/users")
-    public ResponseEntity<Response> users(@RequestBody UserDto userDto) {
-        Response response = userService.createUser(userDto);
+    @RequestMapping(method = RequestMethod.POST, path = "/auth")
+    public ResponseEntity<Response> users(@RequestBody AuthenticationDto authenticationDto) {
+        Response response = authService.authentication(authenticationDto);
         return new ResponseEntity(response, HttpStatus.OK);
     }
 }
