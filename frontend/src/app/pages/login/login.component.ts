@@ -13,8 +13,8 @@ declare var $: any;
 
 export class LoginComponent implements OnInit {
     test: Date = new Date();
-    username: string;
-    passwd: string;
+    nickName: string;
+    password: string;
     constructor(private service: RestCommonService) { }
     checkFullPageBackgroundImage() {
         var $page = $('.full-page');
@@ -35,14 +35,15 @@ export class LoginComponent implements OnInit {
     }
     auth() {
         const dataAuthentication = {
-            nick_name: this.username,
-            password: this.passwd
+            nickName: this.nickName,
+            password: this.password
         };
 
         this.service.post('/auth', dataAuthentication)
             .subscribe(
             res => {
-                alert('Loguerd');
+                console.log(res.message);
+                alert(res.message);
             },
             err => {
                 console.log(err);

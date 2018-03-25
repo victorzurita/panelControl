@@ -29,10 +29,10 @@ public class AuthService {
         Response response = new Response(Boolean.TRUE, "Created sucessfully a Usr", null);
         Usr user = userRepository.authentication(authenticationDtoDto.getNickName(), authenticationDtoDto.getPassword());
         if(user != null){
-            response.setData("Authentication successfully");
+            response.setMessage("Authentication successfully");
             return  response;
         }
-        response.setData("Authentication failed");
+        response.setMessage("Authentication failed");
         return  response;
     }
 }
