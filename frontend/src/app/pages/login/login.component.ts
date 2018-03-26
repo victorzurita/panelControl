@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms'
 import { HttpClient } from '@angular/common/http';
 import { RestCommonService } from './../../services/rest-common.service';
+import { Router } from '@angular/router';
 
 declare var $: any;
 
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
     test: Date = new Date();
     nickName: string;
     password: string;
-    constructor(private service: RestCommonService) { }
+    constructor(private router: Router, private service: RestCommonService) { }
     checkFullPageBackgroundImage() {
         var $page = $('.full-page');
         var image_src = $page.data('image');
@@ -41,9 +42,23 @@ export class LoginComponent implements OnInit {
 
         this.service.post('/auth', dataAuthentication)
             .subscribe(
-            res => {
-                console.log(res.message);
-                alert(res.message);
+            response => {
+                if (response.status) {
+                    this.router.navigate(['/dashboard'])
+                } else {
+                    $.notify({
+                        icon: "notifications",
+                        message: "nickName o password son incorrectos!"
+
+                    }, {
+                            type: 'danger',
+                            timer: 1000,
+                            placement: {
+                                from: 'top',
+                                align: 'center'
+                            }
+                        });
+                }
             },
             err => {
                 console.log(err);

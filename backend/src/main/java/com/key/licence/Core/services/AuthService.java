@@ -32,6 +32,7 @@ public class AuthService {
             response.setMessage("Authentication successfully");
             return  response;
         }
+        response.setStatus(Boolean.FALSE);
         response.setMessage("Authentication failed");
         return  response;
     }
